@@ -1,0 +1,97 @@
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.animateNumber.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.fancybox.min.js"></script>
+<script src="/js/aos.js"></script>
+<script src="/js/moment.min.js"></script>
+<script src="/js/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+<script src="/js/typed.js"></script>
+<script>
+    $(function() {
+        var slides = $('.slides'),
+            images = slides.find('img');
+
+        images.each(function(i) {
+            $(this).attr('data-id', i + 1);
+        })
+
+        var typed = new Typed('.typed-words', {
+            strings: ["Manali", " Kullu.", " Dharamshala", " Palampur.", " Jibhi jalouri Pass.", "Spiti", "Leh Ladakh", "J&K", "Uttarakhand", "Rajasthan"],
+            typeSpeed: 80,
+            backSpeed: 80,
+            backDelay: 4000,
+            startDelay: 1000,
+            loop: true,
+            showCursor: true,
+            preStringTyped: (arrayPos, self) => {
+                arrayPos++;
+                console.log(arrayPos);
+                $('.slides img').removeClass('active');
+                $('.slides img[data-id="' + arrayPos + '"]').addClass('active');
+            }
+
+        });
+    })
+</script>
+
+<script src="/js/custom.js"></script>
+
+
+<script>
+    $(function() {
+        $("#BookAppointment").on("submit", function(event) {
+            event.preventDefault();
+
+            var name = $("#name").val().trim();
+            var email = $("#email").val().trim();
+            var phoneNumber = $("#phoneNumber").val().trim();
+            var message = $("#message").val().trim();
+
+            var data = {
+                companyId: "66da8c53bf45532573e29bca",
+                formId: "66da8c53bf45532573e29bd0",
+                locationId: "66da8c53bf45532573e29bcc",
+                source: "WebSite",
+                fields: [{
+                    key: "name",
+                    value: name
+                }, {
+                    key: "email",
+                    value: email
+                }, {
+                    key: "phoneNumber",
+                    value: phoneNumber
+                }, {
+                    key: "message",
+                    value: message
+                }]
+            };
+
+            var BookAppointment = JSON.stringify(data);
+            $.ajax({
+                url: "https://crm-api.leadhooper.com/api/lead",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                type: "post",
+                data: BookAppointment,
+                success: function(d) {
+                    $("#BookAppointment")[0].reset();
+                    toastr.success(d.message);
+                    window.location = "/";
+
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.responseJSON ? xhr.responseJSON.message : 'Failed to submit form';
+                    toastr.error(errorMessage);
+                }
+            });
+        });
+    });
+</script>

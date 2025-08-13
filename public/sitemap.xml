@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>//localhost:42841/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:42841/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:42841/himachal-tour/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:42841/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:42841/leh-ladakh/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:42841/photo-gallery/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:42841/services/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:42841/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:42841/video-gallery/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:42841/about/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:42841/yatra/</loc>
+  </url>
+  
+</urlset>
